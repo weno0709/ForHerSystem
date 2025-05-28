@@ -1,18 +1,45 @@
 package javaproject;
-
-
-
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+public void register() {
+			System.out.println(" \n\n
+____                    __ \r\n"+
+"/\  _`\                 /\ \/\ \      \r\n"+             
+"\ \ \L\_\  ___    _ __  \ \ \_\ \      __    _ __  \r\n"+
+" \ \  _\/ / __`\ /\`'__\ \ \  _  \   /'__`\ /\`'__\ \r\n"+
+"  \ \ \/ /\ \L\ \\ \ \/   \ \ \ \ \ /\  __/ \ \ \/ \r\n"+
+"   \ \_\ \ \____/ \ \_\    \ \_\ \_\\ \____\ \ \_\ \r\n"+
+"    \/_/  \/___/   \/_/     \/_/\/_/ \/____/  \/_/ \r\n");
+			 System.out.print("이메일 : "); eMail=sc.next();
+			System.out.print("비밀번호 : "); pw=sc.next();
+			System.out.print("이름 : "); name=sc.next();
+			System.out.print("닉네임 : "); nickname=sc.next();
+			System.out.print("주민번호 앞자리 7글자 : "); code=sc.nextInt();
+		}
+
+public static boolean femaleMemeberCheck(code){
+			char femaleNum=code.charAt(6);
+			if(femaleNum=='0'||femaleNum=='2'||femaleNum=='4'||femaleNum=='6'||femaleNum=='8'){
+				System.out.println("감사합니다. 여성인증과 함께 회원가입이 성공적으로 완료되었습니다.\n For Her에 오신 것을 환영합니다!"+name+"님");
+			else {
+				System.out.println("죄송합니다. 여성인증에 실패하였습니다. 본 시스템은 여성 회원님에 한해 운영 중입니다...");
+				return false;
+			}
+public vodi login{
+	System.out.print("이메일 : "); eMail=sc.next();
+	System.out.print("비밀번호 : "); pw=sc.next();
+	System.out.println(id+"님의 로그인이 성공적으로 완료되었습니다! ");
+
+}
 
 
 public class ForHerMain {
 
 	public static void main(String[] args) {
 		String id=null;
-		String passwords = null;
+		String pw = null;
 		String name=null;
 		String nickname = null;
 		int code=null;
@@ -29,26 +56,29 @@ public class ForHerMain {
 		womanonly.add(new WomanOnlys("대구 동구 동부로 777");
 		womanonly.add(new WomanOnlys("경북 경산시 대학로 100");
 		womanonly.add(new WomanOnlys("대구 남구 이천로 1길 11");
+
+
+				
+
 		
 		while (select!=4) {
-			System.out.println("For Her에 오신 것을 환영합니다! 아래 번호를 먼저 선택해주세요.");
-			System.out.println("1. 회원가입 2. 로그인 3. 불법촬영구역 등록 4. 불법촬영구역 조회 5. 여성전용공간 검색");
-			System.out.println("6. 여성전용공간 리뷰 7. 질의응답 8. 공지사항 등록 9. 사용자 관리 10. 공지사항 등록 11. 여성전용공간 관리 : ");
-			select=sc.nextInt();
 			
+                                                   
+
+			System.out.println("For Her에 오신 것을 환영합니다!\n"+"현재 시스템을 이용하기 위해 회원가입이 필요합니다.\n"+"회원가입을 진행하시겠습니까?\n"+"(예) Y / (아니오) N  입력해주세요.\n");
+			System.out.println("1. 불법촬영구역 등록 2. 불법촬영구역 조회 3. 여성전용공간 검색 4. 여성전용공간 리뷰 5. 질의응답 \n 6. 공지사항 등록 7. 사용자 관리 8. 공지사항 등록 9. 여성전용공간 관리 : ");
+			select=sc.nextInt();
+
+
+                                                   
+				
 		switch(select) {
 		case 1:
-			System.out.print("아이디 : "); id=sc.next();
-			System.out.print("비밀번호 : "); passwords=sc.next();
-			System.out.print("이름 : "); name=sc.next();
-			System.out.print("닉네임 : "); nickname=sc.next();
-			System.out.print("주민번호 앞자리 7글자 : "); code=sc.nextInt();
+			
 			
 			break;
 		case 2:
-			System.out.print("아이디 : "); id=sc.next();
-			System.out.print("비밀번호 : "); passwords=sc.next();
-			System.out.println(id+"님의 로그인이 성공적으로 완료되었습니다!");
+
 			break;
 		case 3:
 			System.out.print("불법촬영구역 위치 : "); camlocation=sc.next();
