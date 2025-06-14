@@ -5,15 +5,15 @@ import java.util.Scanner;
 class User {
     private String name;
     private String nickname;
-    private String email; 
+    private String id; 
     private String password;
     private int rrn;
     private int userAccess; 
     
-    public User(String name, String nickname, String email, String password, int rrn) {
+    public User(String name, String nickname, String id, String password, int rrn) {
         this.name = name;
         this.nickname = nickname;
-        this.email = email;
+        this.id = id;
         this.password = password;
         this.rrn = rrn;
         this.userAccess = 0; 
@@ -21,7 +21,7 @@ class User {
     
     public String getName() { return name; }
     public String getNickname() { return nickname; }
-    public String getEmail() { return email; }
+    public String getId() { return id; }
     public String getPassword() { return password; }
     public int getRrn() { return rrn; }
     public int getUserAccess() { return userAccess; }
@@ -118,15 +118,15 @@ public class ForHer {
  
     public static void registration() {
         System.out.println("ForHer₊_______________________________\n"
-        		+ "                  ⿴   회원가입   。\n");
+        		+ "                  ⿴    회원가입 。\n");
 
         
-        System.out.print("이메일: ");
-        String email = sc.next();
+        System.out.print("아이디: ");
+        String id = sc.next();
         
 
-        if (alreadyId(email)) {
-            System.out.println("이미 등록되어 있는 이메일 정보입니다. 다른 이메일을 사용해주세요.");
+        if (alreadyId(id)) {
+            System.out.println("이미 등록되어 있는 아이디입니다. 다른 아이디를 사용해주세요.");
             return;
         }
         
@@ -147,7 +147,7 @@ public class ForHer {
         }
         
         if (femaleMemberCheck(rrn)) {
-            User newUser = new User(name, nickname, email, password, rrn);
+            User newUser = new User(name, nickname, id, password, rrn);
             users.add(newUser);
             System.out.println("회원가입이 성공적으로 완료되었습니다!");
             System.out.println("For Her에 오신 것을 환영합니다, " + name + "님!");
@@ -156,9 +156,9 @@ public class ForHer {
         }
     }
     
-    public static boolean alreadyId(String email) {
+    public static boolean alreadyId(String id) {
         for (User user : users) {
-            if (user.getEmail().equals(email)) {
+            if (user.getId().equals(id)) {
                 return true;
             }
         }
@@ -190,14 +190,14 @@ public class ForHer {
             return;
         }
         
-        System.out.print("이메일: ");
-        String inputEmail = sc.next();
+        System.out.print("아이디: ");
+        String inputId = sc.next();
         System.out.print("비밀번호: ");
         String inputPassword = sc.next();
         
-        if (loginCheck(inputEmail, inputPassword)) {
+        if (loginCheck(inputId, inputPassword)) {
             for (User user : users) {
-                if (user.getEmail().equals(inputEmail) && user.getPassword().equals(inputPassword)) {
+                if (user.getId().equals(inputId) && user.getPassword().equals(inputPassword)) {
                     currentUser = user;
                     System.out.println(user.getName() + "님의 로그인이 성공적으로 완료되었습니다! 환영합니다!");
                     break;
@@ -207,9 +207,9 @@ public class ForHer {
             System.out.println("로그인 정보가 일치하지 않습니다...");
         }
     }
-    public static boolean loginCheck(String email, String password) {
+    public static boolean loginCheck(String id, String password) {
         for (User user : users) {
-            if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
+            if (user.getId().equals(id) && user.getPassword().equals(password)) {
                 return true;
             }
         }
@@ -246,7 +246,7 @@ public class ForHer {
         }
     }
 
-    // 여성전용공간 검색 (카테고리별 검색 기능 추가)
+
     public static void searchWomanOnlySpaces() {
         System.out.println("ForHer₊________________________________\n"
         		+ "                  ⿴   여성전용공간 검색  。\n");
@@ -260,7 +260,7 @@ public class ForHer {
         if (choice == 1) {
             showWomanOnlyList();
         } else if (choice == 2) {
-            System.out.print("카테고리 입력 (헬스장/휴계실/기타): ");
+            System.out.print("카테고리 입력 (헬스장/휴게실/기타): ");
             String category = sc.next();
             browseCategories(category);
         }
@@ -344,8 +344,7 @@ public class ForHer {
         notices.add(newNotice);
         System.out.println("공지사항이 성공적으로 등록되었습니다. (공지번호: " + newNotice.getNoticeNo() + ")");
     }
-    
-    // 공지사항 목록 조회
+
     public static void showNoticeList() {
         if (notices.isEmpty()) {
             System.out.println("등록된 공지사항이 없습니다...");
@@ -366,7 +365,7 @@ public class ForHer {
         System.out.println("ForHer₊_______________________________\n"
         		+ "                  ⿴ 사용자 정보 。\n");
 
-        System.out.println("이메일: " + currentUser.getEmail());
+        System.out.println("아이디: " + currentUser.getId());
         System.out.println("이름: " + currentUser.getName());
         System.out.println("닉네임: " + currentUser.getNickname());
         System.out.println("주민번호 앞자리: " + currentUser.getRrn());
